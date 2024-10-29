@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 
@@ -12,22 +13,7 @@ Route::get('/about', function () {
 });
 
 Route::get('/posts', function () {
-    return view('posts', ['title' => 'Blog', 'posts' => [
-        [
-            'id' => 1,
-            'slug' => 'judul-artikel-1',
-            'title' => 'Judul Artikel 1',
-            'author' => 'Gilbert Simbolon',
-            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde optio inventore ratione in! Nesciunt qui laborum facere possimus, consequatur cupiditate animi, et quam magni ullam placeat velit impedit nam nemo.'
-        ],
-        [
-            'id' => 2,
-            'slug' => 'judul-artikel-2',
-            'title' => 'Judul Artikel 2',
-            'author' => 'Gilbert Simbolon',
-            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde optio inventore ratione in! Nesciunt qui laborum facere possimus, consequatur cupiditate animi, et quam magni ullam placeat velit impedit nam nemo.'
-        ]
-    ]]);
+    return view('posts', ['title' => 'Blog', 'posts' => Post::all()]);
 });
 
 Route::get('/posts/{slug}', function($slug){
