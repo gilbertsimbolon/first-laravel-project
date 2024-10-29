@@ -12,7 +12,7 @@ Route::get('/about', function () {
 });
 
 Route::get('/posts', function () {
-    return view('posts', ['title' => 'Posts', 'posts' => [
+    return view('posts', ['title' => 'Blog', 'posts' => [
         [
             'id' => 1,
             'slug' => 'judul-artikel-1',
